@@ -35,8 +35,6 @@ const RestaurantMenu = () => {
         fetchMenu(30.7333148, 76.7794179);
     }, [])
 
-    console.log("carousels", carousels);
-
     return (
         <div className='w-[50%] m-auto pt-8'>
             <div className='flex justify-between items-center'>
@@ -56,21 +54,15 @@ const RestaurantMenu = () => {
                 <p>{title?.costForTwoMessage}</p>
             </div>
 
+            {carousels.title == "Top Picks" ?
+                <div className='pt-10'   >
+                    <p className='text-xl font-bold'>{carousels.title}</p>
+                </div>
+                : <></>
 
-            <div className='pt-10'   >
-                <p className='text-xl font-bold'>{carousels.title}</p>
-                {/* <div className='flex gap-4'>
-                    {
-                        carousels.carousel.length > 0 && carousels.carousel.map((item) => {
-                            return (
-                                <div key={item?.bannerId} className='w-[200px]'>
-                                    <img src={"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" + item?.dish?.info?.imageId} alt='banner' />
-                                </div>
-                            )
-                        })
-                    }
-                </div> */}
-            </div>
+            }
+
+
 
         </div>
     )
